@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GenieBookShelf</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/application.css"/>
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">JuliaBooks</h1>
+    </div>
+    <div class="row">
+        <h2 class="col-md-12 pull-left">
+            登録者:$( length(@vars(:books)) )冊
+        </h2>
+    </div>
+    <div class="row">
+        <%
+        @foreach(@vars(:books)) do book
+        """
+        <div class="col-md-3 col-md-offset-1" >
+            <img src ="", alt ="表紙"/>
+            <div>
+                <li>タイトル:$(book.title)</li>
+                <li>出版日:$(book.publication_date)</li>
+            </div>
+        </div>
+        """
+        end
+        %>
+    </div>
+</div>
 </body>
 </html>
